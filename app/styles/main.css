@@ -1,5 +1,89 @@
-h1 {
-  color: red;
-  font-size: 1.5em; }
+body {
+  font-size: 100%; }
+  body button:focus {
+    outline: 0; }
+
+.header {
+  font-family: "Open Sans", sans-serif;
+  text-align: center; }
+  .header h1 {
+    font-size: 3em;
+    color: #204056;
+    margin-bottom: 0px;
+    line-height: 1em; }
+  .header h2 {
+    font-size: .85em;
+    color: #BFBFBF;
+    margin-top: 0px; }
+
+.container {
+  text-align: center; }
+
+.calculator {
+  position: relative;
+  display: inline-block;
+  margin-top: 3.5rem;
+  width: 20rem;
+  height: 31rem;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0px 0px 15px black;
+  font-family: "Open Sans", sans-serif; }
+  .calculator .display {
+    width: 20rem;
+    height: 6rem;
+    background-color: #204056;
+    color: white;
+    box-shadow: 0px -4px 10px -2px black inset; }
+    .calculator .display span {
+      position: absolute;
+      right: 20px;
+      top: 14px;
+      font-size: 3rem; }
+    .calculator .display p {
+      position: absolute;
+      left: 20px;
+      top: 64px;
+      margin-top: 0px;
+      font-size: 1.25em; }
+    .calculator .display h1 {
+      position: absolute;
+      right: 23px;
+      top: 55px;
+      font-size: 1em;
+      opacity: .6; }
+  .calculator .row {
+    display: inline; }
+    .calculator .row .number, .calculator .row .operator, .calculator .row .large {
+      float: left;
+      width: 25%;
+      height: 5rem;
+      background-color: white;
+      border: none;
+      border-top: 1px solid #BFBFBF;
+      border-left: 1px solid #BFBFBF;
+      color: grey;
+      text-decoration: none;
+      font-size: 1.25em;
+      cursor: pointer; }
+    .calculator .row .number:hover, .calculator .row .operator:hover, .calculator .row .large:hover {
+      background-color: #e6e6e6; }
+    .calculator .row .operator {
+      background-color: #019875;
+      color: white; }
+    .calculator .row .operator:hover {
+      background-color: #01654e; }
+    .calculator .row .top {
+      background-color: #ECF0F1;
+      border-top: 0px; }
+    .calculator .row .top:hover {
+      background-color: #cfd9db; }
+    .calculator .row .top.operator {
+      background-color: #019875;
+      color: white; }
+    .calculator .row .top.operator:hover {
+      background-color: #01654e; }
+    .calculator .row .large {
+      width: 50%; }
 
 /*# sourceMappingURL=main.css.map */

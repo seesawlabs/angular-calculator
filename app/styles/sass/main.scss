@@ -1,4 +1,126 @@
-h1 {
-    color: red;
-    font-size: 1.5em;
+// Variables
+$pebble: #BFBFBF;
+$pumice: #ECF0F1;
+$ocean: #204056;
+$sky: #019875;
+$fontFamily: 'Open Sans',
+sans-serif;
+
+// Mixins
+@mixin centerer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+body {
+    font-size: 100%;
+    button:focus {
+        outline: 0;
+    }
+}
+
+.header {
+    font-family: $fontFamily;
+    text-align: center;
+    h1 {
+        font-size: 3em;
+        color: $ocean;
+        margin-bottom: 0px;
+        line-height: 1em;
+    }
+    h2 {
+        font-size: .85em;
+        color: $pebble;
+        margin-top: 0px;
+    }
+}
+
+.container {
+    text-align: center;
+}
+
+.calculator {
+    position: relative;
+    display: inline-block;
+    margin-top: 3.5rem;
+    width: 20rem;
+    height: 31rem;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px black;
+    font-family: $fontFamily;
+    .display {
+        width: 20rem;
+        height: 6rem;
+        background-color: $ocean;
+        color: white;
+        box-shadow: 0px -4px 10px -2px black inset;
+        span {
+            position: absolute;
+            right: 20px;
+            top: 14px;
+            font-size: 3rem;
+        }
+        p {
+            position: absolute;
+            left: 20px;
+            top: 64px;
+            margin-top: 0px;
+            font-size: 1.25em;
+        }
+        h1 {
+            position: absolute;
+            right: 23px;
+            top: 55px;
+            font-size: 1em;
+            opacity: .6;
+        }
+    }
+    .row {
+        display: inline;
+        .number {
+            float: left;
+            width: 25%;
+            height: 5rem;
+            background-color: white;
+            border: none;
+            border-top: 1px solid $pebble;
+            border-left: 1px solid $pebble;
+            color: grey;
+            text-decoration: none;
+            font-size: 1.25em;
+            cursor: pointer;
+        }
+        .number:hover {
+            background-color: darken(white, 10%);
+        }
+        .operator {
+            @extend .number;
+            background-color: $sky;
+            color: white;
+        }
+        .operator:hover {
+            background-color: darken($sky, 10%);
+        }
+        .top {
+            background-color: $pumice;
+            border-top: 0px;
+        }
+        .top:hover {
+            background-color: darken($pumice, 10%);
+        }
+        .top.operator {
+            background-color: $sky;
+            color: white;
+        }
+        .top.operator:hover {
+            background-color: darken($sky, 10%);
+        }
+        .large {
+            @extend .number;
+            width: 50%;
+        }
+    }
 }
