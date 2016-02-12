@@ -1,36 +1,37 @@
 <div class="calculator">
     <div class="display">
-        <span>0</span>
-        <p>+</p>
+        <span ng-show="main.show">{{main.displayVal}}</span>
+        <p ng-show="main.show">{{main.pendingOp}}</p>
+        <h1 ng-hide="main.show">OFF</h1>
     </div>
     <div class="row">
-        <button class="top number">On</button>
-        <button class="top number">&#8678;</button>
-        <button class="top number">AC</button>
-        <button class="operator top">/</button>
+        <button class="top number" ng-click="main.powerToggle()">On</button>
+        <button class="top number" ng-click="main.backspace()">&#8678;</button>
+        <button class="top number" ng-click="main.clear()">AC</button>
+        <button class="operator top" ng-click="main.performOp('/')">/</button>
     </div>
     <div class="row">
-        <button class="number">7</button>
-        <button class="number">8</button>
-        <button class="number">9</button>
-        <button class="operator">X</button>
+        <button class="number" ng-click="main.updateDisplayVal('7')">7</button>
+        <button class="number" ng-click="main.updateDisplayVal('8')">8</button>
+        <button class="number" ng-click="main.updateDisplayVal('9')">9</button>
+        <button class="operator" ng-click="main.performOp('x')">X</button>
     </div>
     <div class="row">
-        <button class="number">4</button>
-        <button class="number">5</button>
-        <button class="number">6</button>
-        <button class="operator">-</button>
+        <button class="number" ng-click="main.updateDisplayVal('4')">4</button>
+        <button class="number" ng-click="main.updateDisplayVal('5')">5</button>
+        <button class="number" ng-click="main.updateDisplayVal('6')">6</button>
+        <button class="operator" ng-click="main.performOp('-')">-</button>
 
     </div>
     <div class="row">
-        <button class="number">1</button>
-        <button class="number">2</button>
-        <button class="number">3</button>
-        <button class="operator">+</button>
+        <button class="number" ng-click="main.updateDisplayVal('1')">1</button>
+        <button class="number" ng-click="main.updateDisplayVal('2')">2</button>
+        <button class="number" ng-click="main.updateDisplayVal('3')">3</button>
+        <button class="operator" ng-click="main.performOp('+')">+</button>
     </div>
     <div class="row">
-        <button class="large">0</button>
-        <button class="number">.</button>
-        <button class="operator">=</button>
+        <button class="large" ng-click="main.updateDisplayVal('0')">0</button>
+        <button class="number" ng-click="main.updateDisplayVal('.')">.</button>
+        <button class="operator" ng-click="main.performOp('=')">=</button>
     </div>
 </div>

@@ -6,14 +6,6 @@ $sky: #019875;
 $fontFamily: 'Open Sans',
 sans-serif;
 
-// Mixins
-@mixin centerer {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
 body {
     font-size: 100%;
     button:focus {
