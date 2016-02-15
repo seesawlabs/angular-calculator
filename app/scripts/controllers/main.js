@@ -37,15 +37,20 @@
 
         // Updates displayVal as new values are added
         function updateDisplayVal(userInput) {
+            // Check for initial state
             if (vm.displayVal === '0' || vm.reset) {
                 vm.displayVal = userInput;
                 vm.reset = false;
-            } else if (userInput === '.' && vm.displayVal.indexOf(".") !== -1) {
-                // Return if . already exists in displayVal
                 return;
-            } else {
-                vm.displayVal += userInput;
             }
+
+            // Return if . already exists in displayVal
+            if (userInput === '.' && vm.displayVal.indexOf(".") !== -1) {
+                return;
+            }
+            
+            // Else update display with user input
+            vm.displayVal += userInput;
         }
 
         // Triggered when an operator key is pressed
@@ -61,33 +66,29 @@
 
                 // Perform the pending operation
                 switch (vm.pendingOp) {
-                    case '/':
-                        if (vm.newVal === 0 && vm.pendingVal !== 0) {
-                            vm.displayVal = 'NAN';
-                        } else {
-                            vm.total = vm.pendingVal / vm.newVal;
-                            vm.stringTotal = String(vm.total);
-                            vm.displayVal = vm.stringTotal.slice(0,10);
-                        }
-                        break;
-                    case 'x':
-                        vm.total = vm.pendingVal * vm.newVal;
-                        vm.stringTotal = String(vm.total);
-                        vm.displayVal = vm.stringTotal.slice(0,10);
-                        break;
-                    case '+':
-                        vm.total = vm.pendingVal + vm.newVal;
-                        vm.stringTotal = String(vm.total);
-                        vm.displayVal = vm.stringTotal.slice(0,10);
-                        break;
-                    case '-':
-                        vm.total = vm.pendingVal - vm.newVal;
-                        vm.stringTotal = String(vm.total);
-                        vm.displayVal = vm.stringTotal.slice(0,10);
-                        break;
-                    default:
-                        console.log('default');
+                case '/':
+                    if (vm.newVal === 0 && vm.pendingVal !== 0) {
+                        vm.displayVal = 'NAN';
+                    } else {
+                        vm.total = vm.pendingVal / vm.newVal;
+                    }
+                    break;
+                case 'x':
+                    vm.total = vm.pendingVal * vm.newVal;
+                    break;
+                case '+':
+                    vm.total = vm.pendingVal + vm.newVal;
+                    break;
+                case '-':
+                    vm.total = vm.pendingVal - vm.newVal;
+                    break;
+                default:
+                    console.error('Invalid Input');
                 }
+
+                // Push new total to display
+                vm.stringTotal = String(vm.total);
+                vm.displayVal = vm.stringTotal.slice(0, 10);
 
                 // Check if user wants to calculate total and reset values
                 if (operator === '=') {
@@ -110,7 +111,6 @@
             vm.pendingOp = '';
             vm.pendingVal = null;
         }
-
 
         // Toggles the calculator on and off 
         function powerToggle() {
